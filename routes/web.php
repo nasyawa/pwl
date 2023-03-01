@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\HomeeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\Prak3Controller;
+use App\Http\Controllers\Praktikum_1_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,64 @@ use Illuminate\Support\Facades\Route;
 //        echo "Halaman Artikel dengan ID=$id";
 //        });
 
-Route::get('/', [HomeeController::class, 'index']);
-Route::get('/about', [AboutController::class, 'about']);
-Route::get('/article/{id}', [ArticleController::class, 'article']);
+//Route::get('/', [HomeeController::class, 'index']);
+//Route::get('/about', [AboutController::class, 'about']);
+//Route::get('/article/{id}', [ArticleController::class, 'article']);
+
+//PRAKTIKUM 1 Pertemuan 3
+//route home
+// Route::get('/',[Praktikum_1_Controller::class,'home']);
+
+// //route prefix product
+// Route::prefix('product')->group(function(){
+//         Route::get('/',[Praktikum_1_Controller::class,'product']);
+//         Route::get('/1',function(){
+//                 return redirect("https://www.educastudio.com/category/marbel-edu-games");
+//         });
+//         Route::get('/2',function(){
+//                 return redirect("https://www.educastudio.com/category/marbel-and-friends-kids-games");
+//         });
+//         Route::get('/3',function(){
+//                 return redirect("https://www.educastudio.com/category/riri-story-books");
+//         });
+//         Route::get('/4',function(){
+//                 return redirect("https://www.educastudio.com/category/kolak-kids-songs");
+//         });
+// });
+// //route param news
+// Route::get('/news',[Praktikum_1_Controller::class,'newshome']);
+// Route::get('/news/{id}',[Praktikum_1_Controller::class,'news']);
+
+// // route prefix program
+// Route::prefix('program')->group(function(){
+//         Route::get('/',[Praktikum_1_Controller::class,'program']);
+//         Route::get('/karir', function(){
+//                 return redirect("https://www.educastudio.com/program/karir");
+//         });
+//         Route::get('/magang', function(){ 
+//                 return redirect("https://www.educastudio.com/program/magang");
+//         }); 
+//         Route::get('/kunjungan', function(){ 
+//                 return redirect("https://www.educastudio.com/program/kunjungan-industri"); 
+//         });
+// });
+
+// //route biasa about us
+// Route::get('/aboutus',[Praktikum_1_Controller::class,'about_us']);
+// //rpute contact us
+// Route::get('/contactus',[Praktikum_1_Controller::class,'contact_us']);
+
+//PRAKTIKUM 2
+//home
+Route::get('/',[HomeController::class,'home']); 
+Route::get('/profile', [HomeController::class, 'profile']);
+Route::get('/kuliah', [HomeController::class, 'kuliah']);
+
+       
+       
+
+
+       
 
 
             

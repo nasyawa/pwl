@@ -15,4 +15,8 @@ class PageController extends Controller
     public function article($id){
         return "Halaman Artikel dengan ID=$id";
     }
+
+    public function home(){
+        return view("beranda");
+    }
 }

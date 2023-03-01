@@ -6,7 +6,15 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function hello(){
-        return 'Hello World';
+    public function home(){
+        return view('beranda');
+    }
+
+    public function kuliah(){
+        return view('sekolah');
+    }
+
+    public function profile(){
+        return view('profile');
     }
 }
