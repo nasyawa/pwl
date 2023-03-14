@@ -39,7 +39,6 @@
           Hai aku nasya , dulu aku memang excited banget masuk jurusan ini, <br>
           namun seiring berjalannya waktu woww <br>
           semoga aku betah dan bisa lulus di jurusan ini <br>
-          
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

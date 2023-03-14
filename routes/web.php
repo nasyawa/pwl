@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\HobiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Prak3Controller;
 use App\Http\Controllers\Praktikum_1_Controller;
+use App\Models\keluarga;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,11 +80,16 @@ use Illuminate\Support\Facades\Route;
 
 //PRAKTIKUM 2
 //home
-Route::get('/',[HomeController::class,'home']); 
-Route::get('/profile', [HomeController::class, 'profile']);
-Route::get('/kuliah', [HomeController::class, 'kuliah']);
+// Route::get('/',[HomeController::class,'home']); 
+// Route::get('/profile', [HomeController::class, 'profile']);
+// Route::get('/kuliah', [HomeController::class, 'kuliah']);
 
-       
+// Route::get('/artikelnasya',[ArtikelController::class,'index']);
+
+ //PRAKTIKUM 4 lanjut
+ Route::get('/hobi',[HobiController::class,'index']);
+ Route::get('/keluarga',[KeluargaController::class,'index']);
+ Route::get('/matakuliah',[MatakuliahController::class,'index']);
        
 
 

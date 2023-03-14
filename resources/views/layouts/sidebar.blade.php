@@ -37,9 +37,36 @@
           {{-- Profile --}}
           <li class="nav-item">
             <a href="/profile" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-newspaper"></i>
               <p>
-                Profile
+                Tabel Artikel
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/hobi" class="nav-link">
+              <i class="nav-icon fa fa-gamepad"></i>
+              <p>
+                Tabel Hobi
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/keluarga" class="nav-link">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Tabel Keluarga
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/matakuliah" class="nav-link">
+              <i class="nav-icon fas fa-folder"></i>
+              <p>
+                Tabel MataKuliah
               </p>
             </a>
           </li>
@@ -54,7 +81,7 @@
             </a>
           </li>
 
-
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
