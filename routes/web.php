@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HobiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeluargaController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Prak3Controller;
 use App\Http\Controllers\Praktikum_1_Controller;
 use App\Models\keluarga;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,10 +89,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/artikelnasya',[ArtikelController::class,'index']);
 
  //PRAKTIKUM 4 lanjut
- Route::get('/hobi',[HobiController::class,'index']);
- Route::get('/keluarga',[KeluargaController::class,'index']);
- Route::get('/matakuliah',[MatakuliahController::class,'index']);
-       
+ // Route::get('/hobi',[HobiController::class,'index']);
+ // Route::get('/keluarga',[KeluargaController::class,'index']);
+ // Route::get('/matakuliah',[MatakuliahController::class,'index']);
 
 
        
@@ -98,3 +99,19 @@ use Illuminate\Support\Facades\Route;
 
             
     
+
+Auth::routes();
+Route::get('/logout',[LoginController::class,'logout']);
+
+Route::middleware(['auth'])->group(function(){
+    //semua url masuk sini
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('/',[HomeController::class,'index']); 
+    Route::get('/profile', [HomeController::class, 'profile']);
+    Route::get('/kuliah', [HomeController::class, 'kuliah']);
+
+    Route::get('/hobi',[HobiController::class,'index']);
+    Route::get('/keluarga',[KeluargaController::class,'index']);
+    Route::get('/matakuliah',[MatakuliahController::class,'index']);
+});
