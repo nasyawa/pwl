@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HobiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Prak3Controller;
@@ -111,7 +112,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/profile', [HomeController::class, 'profile']);
     Route::get('/kuliah', [HomeController::class, 'kuliah']);
 
-    Route::get('/hobi',[HobiController::class,'index']);
-    Route::get('/keluarga',[KeluargaController::class,'index']);
-    Route::get('/matakuliah',[MatakuliahController::class,'index']);
+    
+   
+    Route::resource('/matakuliah',MatakuliahController::class);
+    Route::resource('/keluarga',KeluargaController::class);
+    Route::resource('/hobi',HobiController::class);
+    Route::resource('/mahasiswa',MahasiswaController::class);
 });

@@ -10,4 +10,8 @@ class hobi extends Model
     use HasFactory;
     protected $table='hobi';
     protected $primary='id';
+
+    protected $fillable = [
+        'jenishobi', 
+        'waktu' ];
 }

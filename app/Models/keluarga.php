@@ -9,5 +9,8 @@ class keluarga extends Model
 {
     use HasFactory;
     protected $table='keluarga';
-    protected $primary='id';
+
+    protected $fillable = [
+        'nama'
+    ];
 }

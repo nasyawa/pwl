@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>MATA KULIAH</h1>
+            <h1>HOBI</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">MATA KULIAH</li>
+              <li class="breadcrumb-item active">HOME</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">TABEL MATA KULIAH NASYA</h3>
+                  <h3 class="card-title">HOBI NASYA</h3>
   
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -39,26 +39,29 @@
                   </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Mata Kuliah</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($data as $d)
-                        <tr>
-                            <td>{{ $d -> id }}</td>
-                            <td>{{ $d -> matkul }}</td>
-                        </tr>
-                        @endforeach                        
-                    </tbody>
-                  </table>
-                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ $url_form }}">
+                        @csrf
+                        {!!(isset($hobi))?method_field('PUT'):''!!}
+
+                        <div class="form-group">
+                            <label> Jenis Hobi </label>
+                            <input class="form-control @error('jenishobi') is-invalid @enderror" value="{{isset($hobi)?$hobi->jenishobi:old('jenishobi')}}" type="text" name="jenishobi"/>
+                            @error('jenishobi')
+                            <span class="error_invalid-feedback">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label> waktu </label>
+                            <input class="form-control @error('waktu') is-invalid @enderror" value="{{isset($hobi)?$hobi->waktu:old('waktu')}}" type="text" name="waktu"/>
+                            @error('waktu')
+                            <span class="error_invalid-feedback">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </form>
                 <!-- /.card-body -->
-              </div>
+             </div>
               <!-- /.card -->
             </div>
           </div>

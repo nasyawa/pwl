@@ -10,4 +10,8 @@ class matakuliah extends Model
     use HasFactory;
     protected $table='matakuliah';
     protected $primary='id';
+
+    protected $fillable = [
+        'matkul'
+    ];
 }

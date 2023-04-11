@@ -80,6 +80,16 @@
               </p>
             </a>
           </li>
+          {{-- menambahkan sidebar --}}
+          <li class="nav-item">
+            <a href="/mahasiswa" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Mahasiswa
+              </p>
+            </a>
+          </li>
+
 
           
         </ul>
