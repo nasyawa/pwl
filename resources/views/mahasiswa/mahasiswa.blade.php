@@ -72,7 +72,7 @@
                               <td>
                                 <!-- Bikin tombol edit dan delete show -->
                                 <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
-          
+                                <a href="{{ url('/nilai/'. $m->id) }}" class="btn btn-sm btn-warning">nilai</a>
                                 <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
                                   @csrf
                                   @method('DELETE')
