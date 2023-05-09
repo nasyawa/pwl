@@ -47,29 +47,30 @@
                           <th>No</th>
                           <th>NIM</th>
                           <th>Nama</th>
+                          <th>Kelas Id</th>
                           <th>Jenis Kelamin</th>
                           <th>Tempat Lahir</th>
                           <th>Tanggal Lahir</th>
                           <th>Alamat</th>
                           <th>HP</th>
                           <th>Action</th>
-      
                         </tr>
                       </thead>
                       <tbody>
                         @if($mhs->count() > 0)
-                          @foreach($mhs as $i => $m)
+                          @foreach($paginate as $i => $m)
                             <tr>
                               <td>{{++$i}}</td>
                               <td>{{$m->nim}}</td>
                               <td>{{$m->nama}}</td>
+                              <td>{{$m->kelas !== null ? $m->kelas->nama_kelas: 'none'}}</td>
                               <td>{{$m->jk}}</td>
                               <td>{{$m->tempat_lahir}}</td>
                               <td>{{$m->tanggal_lahir}}</td>
                               <td>{{$m->alamat}}</td>
                               <td>{{$m->hp}}</td>
                               <td>
-                                <!-- Bikin tombol edit dan delete -->
+                                <!-- Bikin tombol edit dan delete show -->
                                 <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
           
                                 <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
@@ -77,6 +78,9 @@
                                   @method('DELETE')
                                   <button type="submit" class="btn btn-sm btn-danger">hapus</button>
                                 </form>
+
+                                <a href="{{ route('mahasiswa.show', [$m->id]) }}" 
+                                  class="btn btn-sm btn-warning">show</a>
                               </td>
                             </tr>
                           @endforeach
@@ -85,6 +89,7 @@
                         @endif
                       </tbody>
                     </table>
+                    {{$paginate->links()}}
                   </div>
                   <!-- /.card-body -->
                 <!-- /.card-body -->

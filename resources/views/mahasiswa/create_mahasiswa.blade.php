@@ -94,7 +94,15 @@
                             <span class="error_invalid-feedback">{{$message}}</span>
                             @enderror
                         </div>
-
+                        <div class="form-group">
+                          <label for="Kelas">Kelas</label>
+                          <select class="form-control" name="kelas_id">
+                            @foreach ($kelas as $kls)
+                            <option value="{{$kls->id}}"{{isset($mhs) ? $mhs->kelas_id==$kls->id?'selected':'' : ''}}>{{$kls->nama_kelas}}</option>
+                            @endforeach
+                          </select>
+                      </div>
+                     
                         <button class="btn btn-success" type="submit">Submit</button>
                     </form>
                 <!-- /.card-body -->
