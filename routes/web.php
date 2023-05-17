@@ -115,10 +115,12 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/kuliah', [HomeController::class, 'kuliah']);
 
     
-   
+    Route::get('/artikel/cetak_pdf', [ArtikelController::class,'cetak_pdf']);
     Route::resource('/matakuliah',MatakuliahController::class);
     Route::resource('/keluarga',KeluargaController::class);
     Route::resource('/hobi',HobiController::class);
     Route::resource('/mahasiswa',MahasiswaController::class);
     Route::resource('/nilai', NilaiController::class);
+    Route::resource('/artikel', ArtikelController::class);
+    
 });

@@ -39,23 +39,37 @@
                   </div>
                 </div>
                 <!-- /.card-header -->
+                <a href="{{url('artikel/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
                 <div class="card-body table-responsive p-0">
                   <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>Judul</th>
-                        <th>Penulis</th>
-                        <th>Tanggal Terbit</th>
+                        <th>TITLE</th>
+                        <th>CONTENT</th>
+                        <th>FEATURE IMAGE</th>
+                        <th>ACTION</th>
                       </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $d)
                         <tr>
                             <td>{{ $d -> id }}</td>
-                            <td>{{ $d -> judul }}</td>
-                            <td>{{ $d -> penulis }}</td>
-                            <td>{{ $d -> tgl_terbit }}</td>
+                            <td>{{ $d -> title }}</td>
+                            <td>{{ $d -> content }}</td>
+                            <td>
+                              <img src="/storage/{{$d->featured_image}}" width="60px">
+                            </td>
+                            <td>
+                              <div style="display: flex">
+                                <a style="margin-right: 5px" href="{{url('artikel/'.$d->id.'/edit')}}" class="btn btn-warning">Edit</a>
+                                <form method="POST" action="{{url('artikel/'.$d->id)}}">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button class="btn btn-danger">Hapus</button>
+                                </form>
+                              </div>
+                            </td>
                         </tr>
                         @endforeach                        
                     </tbody>
