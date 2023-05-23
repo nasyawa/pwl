@@ -8,6 +8,7 @@ use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Prak3Controller;
 use App\Http\Controllers\Praktikum_1_Controller;
@@ -116,11 +117,14 @@ Route::middleware(['auth'])->group(function(){
 
     
     Route::get('/artikel/cetak_pdf', [ArtikelController::class,'cetak_pdf']);
+    Route::get('/nilai/{id}/cetak', [NilaiController::class, 'cetak']);
+
     Route::resource('/matakuliah',MatakuliahController::class);
     Route::resource('/keluarga',KeluargaController::class);
     Route::resource('/hobi',HobiController::class);
     Route::resource('/mahasiswa',MahasiswaController::class);
     Route::resource('/nilai', NilaiController::class);
     Route::resource('/artikel', ArtikelController::class);
+    Route::resource('/organisasi',OrganisasiController::class);
     
 });

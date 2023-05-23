@@ -6,6 +6,8 @@ use App\Models\Mahasiswa;
 use App\Models\Kelas;
 use App\Models\keluarga;
 use Illuminate\Http\Request;
+use PDF;
+use Storage;
 
 class MahasiswaController extends Controller
 {
@@ -54,10 +56,14 @@ class MahasiswaController extends Controller
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|max:255',
             'hp' => 'required|digits_between:6,15',
+            'foto'=> 'required|file',
         ]);
         // $data = Mahasiswa::create($request->except(['_token']));
         // return redirect('mahasiswa')
         // ->with('success','Mahasiswa Berhasil Ditambahkan');
+        if ($request->file('foto')){
+            $image_name = $request->file('foto')->store('image','public');
+        }
         $mahasiswa= new Mahasiswa;
         $mahasiswa->nim = $request->get('nim');
         $mahasiswa->nama= $request->get('nama');
@@ -66,6 +72,7 @@ class MahasiswaController extends Controller
         $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
         $mahasiswa->alamat = $request->get('alamat');
         $mahasiswa->hp = $request->get('hp');
+        $mahasiswa->foto=$image_name;
         $mahasiswa->save();
 
         $kelas = new kelas;
@@ -133,8 +140,18 @@ class MahasiswaController extends Controller
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|max:255',
             'hp' => 'required|digits_between:6,15',
+            'foto'=> 'required|file',
         ]);
+
         $mahasiswa= Mahasiswa::with('kelas')->where('id',$id)->first();
+
+        if($mahasiswa->foto && file_exists(storage_path('app/public/'.$mahasiswa->foto))){
+            Storage::delete('public/'.$mahasiswa->foto);
+        }
+
+        $image_name=$request->file('foto')->store('image','public');
+        $mahasiswa->foto = $image_name;        
+        
         $mahasiswa->nim = $request->get('nim');
         $mahasiswa->nama= $request->get('nama');
         $mahasiswa->jk = $request->get('jk');
@@ -169,7 +186,9 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        Mahasiswa::where('id','=',$id)->delete();
+        $data = Mahasiswa::find($id);
+        Storage::delete('public/'.$data->foto);
+        $data->delete();
         return redirect('mahasiswa')
         ->with('success','Mahasiswa Berhasil Dihapus');
     }

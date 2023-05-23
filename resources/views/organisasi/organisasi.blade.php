@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>MATA KULIAH</h1>
+            <h1>ORGANISASI</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">MATA KULIAH</li>
+              <li class="breadcrumb-item active"> ORGANISASI</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">TABEL MATA KULIAH NASYA</h3>
+                  <h3 class="card-title">TABEL ORGANISASI NASYA</h3>
   
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -45,31 +45,28 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>ID Mata Kuliah</th>
-                        <th>Nama Mata Kuliah</th>
-                        <th>SKS</th>
-                        <th>Jam</th>
-                        <th>Semester</th>
+                        <th>ID ORGANISASI</th>
+                        <th>Nama ORGANISASI</th>
+                        <th>TAHUN</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @if($matkul->count() > 0)
-                        @foreach($matkul as $i => $m)
+                      @if($data->count() > 0)
+                        @foreach($data as $i => $m)
                           <tr>
                             <td>{{++$i}}</td>
                             <td>{{$m->id}}</td>
-                            <td>{{$m->nama_matkul}}</td>
-                            <td>{{$m->sks}}</td>
-                            <td>{{$m->jam}}</td>
-                            <td>{{$m->semester}}</td>
+                            <td>{{$m->nama}}</td>
+                            <td>{{$m->tahun}}</td>
                             <td>
                               <!-- Bikin tombol edit dan delete -->
-                              <a href="{{ url('/matakuliah/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                              <a href="{{ url('/organisasi/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
         
-                              <form method="POST" action="{{ url('/matakuliah/'.$m->id) }}" >
+                              <form method="POST" action="{{ url('/organisasi/'.$m->id) }}" >
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                                <button type="submit" class="btn btn-sm btn-danger">detail</button>
                               </form>
                             </td>
                           </tr>

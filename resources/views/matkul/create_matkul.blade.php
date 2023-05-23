@@ -51,6 +51,27 @@
                             <span class="error_invalid-feedback">{{$message}}</span>
                             @enderror
                         </div>
+                        <div class="form-group">
+                          <label> SKS  </label>
+                          <input class="form-control @error('matkul') is-invalid @enderror" value="{{isset($matkul)?$matkul->matkul:old('matkul')}}" type="text" name="matkul"/>
+                          @error('matkul')
+                          <span class="error_invalid-feedback">{{$message}}</span>
+                          @enderror
+                      </div>
+                      <div class="form-group">
+                        <label> Jam </label>
+                        <input class="form-control @error('matkul') is-invalid @enderror" value="{{isset($matkul)?$matkul->matkul:old('matkul')}}" type="text" name="matkul"/>
+                        @error('matkul')
+                        <span class="error_invalid-feedback">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                      <label> Semester</label>
+                      <input class="form-control @error('matkul') is-invalid @enderror" value="{{isset($matkul)?$matkul->matkul:old('matkul')}}" type="text" name="matkul"/>
+                      @error('matkul')
+                      <span class="error_invalid-feedback">{{$message}}</span>
+                      @enderror
+                  </div>
                         <button class="btn btn-success" type="submit">Submit</button>
                     </form>
                 <!-- /.card-body -->

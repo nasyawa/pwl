@@ -45,6 +45,7 @@
                 @endforeach
             </tbody>
         </table>
+        <a href="{{url('nilai/'.$mhs->id.'/cetak')}}" class="btn btn-success">CETAK</a>
     </div>
 </body>
 </html>

@@ -36,7 +36,7 @@
 
           {{-- Profile --}}
           <li class="nav-item">
-            <a href="/profile" class="nav-link">
+            <a href="/artikel" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
               <p>
                 Tabel Artikel
@@ -86,6 +86,15 @@
               <i class="nav-icon fas fa-graduation-cap"></i>
               <p>
                 Mahasiswa
+              </p>
+            </a>
+          </li>
+          {{-- menambahkan sidebar --}}
+          <li class="nav-item">
+            <a href="/organisasi" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Organisasi
               </p>
             </a>
           </li>

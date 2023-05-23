@@ -47,12 +47,13 @@
                           <th>No</th>
                           <th>NIM</th>
                           <th>Nama</th>
-                          <th>Kelas Id</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Tempat Lahir</th>
-                          <th>Tanggal Lahir</th>
+                          <th>Kelas</th>
+                          {{-- <th>Gender</th> --}}
+                          {{-- <th>Place</th>
+                          <th>TGL</th> --}}
                           <th>Alamat</th>
                           <th>HP</th>
+                          <th>FOTO</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -64,11 +65,14 @@
                               <td>{{$m->nim}}</td>
                               <td>{{$m->nama}}</td>
                               <td>{{$m->kelas !== null ? $m->kelas->nama_kelas: 'none'}}</td>
-                              <td>{{$m->jk}}</td>
-                              <td>{{$m->tempat_lahir}}</td>
-                              <td>{{$m->tanggal_lahir}}</td>
+                              {{-- <td>{{$m->jk}}</td> --}}
+                              {{-- <td>{{$m->tempat_lahir}}</td>
+                              <td>{{$m->tanggal_lahir}}</td> --}}
                               <td>{{$m->alamat}}</td>
                               <td>{{$m->hp}}</td>
+                              <td>
+                                <img src="/storage/{{$m->foto}}" width="50px">
+                              </td>
                               <td>
                                 <!-- Bikin tombol edit dan delete show -->
                                 <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>

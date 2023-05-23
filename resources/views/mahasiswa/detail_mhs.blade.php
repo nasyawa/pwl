@@ -17,6 +17,7 @@ Detail Mahasiswa
         <li class="list-group-item"></b>Tanggal Lahir : </b> {{$mahasiswa->tanggal_lahir}}</li>
         <li class="list-group-item"></b>Alamat : </b> {{$mahasiswa->alamat}}</li>
         <li class="list-group-item"></b>No.hp : </b> {{$mahasiswa->hp}}</li>
+        
     </ul>
 </div>
 <a class="btn btn-success mt-3" href="{{ route('mahasiswa.index') }}">Kembali</a>

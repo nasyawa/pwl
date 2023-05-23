@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
-use App\Models\Mahasiswa_Matakuliah;
+use App\Models\OrganisasiModel;
 use Illuminate\Http\Request;
-use PDF;
 
-class NilaiController extends Controller
+class OrganisasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,8 @@ class NilaiController extends Controller
      */
     public function index()
     {
-        //
+        $data = OrganisasiModel::all();
+        return view('organisasi.organisasi')->with('data', $data);
     }
 
     /**
@@ -48,9 +47,7 @@ class NilaiController extends Controller
      */
     public function show($id)
     {
-        $mhs = Mahasiswa::where('id', $id)->first();
-        $data = Mahasiswa_Matakuliah::where('mahasiswa_id', $id)->get();
-        return view('nilai', compact('mhs', 'data'));
+        //
     }
 
     /**
@@ -85,12 +82,5 @@ class NilaiController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function cetak($id){
-        $mhs = Mahasiswa::where('id', $id)->first();
-        $data = Mahasiswa_Matakuliah::where('mahasiswa_id', $id)->get();
-        $pdf = PDF::loadView('nilai', compact('mhs','data'))->setOptions(['defaultFont' => 'sans-serif']);
-        return $pdf->stream();
     }
 }
