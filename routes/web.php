@@ -118,6 +118,7 @@ Route::middleware(['auth'])->group(function(){
     
     Route::get('/artikel/cetak_pdf', [ArtikelController::class,'cetak_pdf']);
     Route::get('/nilai/{id}/cetak', [NilaiController::class, 'cetak']);
+    Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
 
     Route::resource('/matakuliah',MatakuliahController::class);
     Route::resource('/keluarga',KeluargaController::class);
